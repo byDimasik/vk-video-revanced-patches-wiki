@@ -2,7 +2,7 @@
 
 Stores upstream ReVanced analogue analysis and `com.vk.vkvideo` APK reconnaissance reports.
 
-## Planned Documents
+## Documents
 
-* `analogue-patterns.md` - ReVanced Patcher v22 Kotlin DSL syntax and ad-blocking patterns from YouTube, TikTok, and Instagram.
+* [`analogue-patterns.md`](analogue-patterns.md) - ReVanced Patcher v22 (`v22.0.1`) Kotlin DSL syntax and ad-blocking patterns from YouTube, TikTok, and Instagram.
 * `vk-video-ad-surface.md` - Target `com.vk.vkvideo` APK version metadata, SHA-256 checksum, and decompiled Smali ad hook surface.
