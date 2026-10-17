@@ -1,6 +1,6 @@
 # vk-video-revanced-patches-wiki
 
-Internal agent knowledge base and Architecture Decision Records (ADRs) for [`byDimasik/vk-video-revanced-patches`](https://github.com/byDimasik/vk-video-revanced-patches).
+Internal agent knowledge base, research repository, and Architecture Decision Records (ADRs) for [`byDimasik/vk-video-revanced-patches`](https://github.com/byDimasik/vk-video-revanced-patches).
 
 ## Why This Is a Separate Repository (Not Native GitHub Wiki)
 
@@ -13,10 +13,17 @@ Internal agent knowledge base and Architecture Decision Records (ADRs) for [`byD
 ```text
 .
 ├── README.md
-└── decisions/
-    └── ADR-001-project-bootstrap.md
+├── ROADMAP.md
+├── decisions/
+│   └── ADR-001-project-bootstrap.md
+└── research/
+    └── README.md
 ```
 
-## Decisions Index
+## Index
 
-* [ADR-001: Project Bootstrap, Team Topology, and Tooling](decisions/ADR-001-project-bootstrap.md)
+* [Project Roadmap & Session State](ROADMAP.md)
+* **Decisions (`decisions/`)**
+  * [ADR-001: Project Bootstrap, Team Topology, and Tooling](decisions/ADR-001-project-bootstrap.md)
+* **Research (`research/`)**
+  * [Research Directory Index](research/README.md)
