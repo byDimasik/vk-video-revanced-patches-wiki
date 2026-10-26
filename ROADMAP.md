@@ -15,13 +15,13 @@ Canonical state file for stateless session resumption across Gemini Spark and Go
 ## Active Backlog — [Epic #10](https://github.com/byDimasik/vk-video-revanced-patches/issues/10): Phase 2
 
 ### Wave 1 (Dispatched to Google Jules — Labeled `jules`, 100% Disjoint Files)
-- [ ] **[Issue #11](https://github.com/byDimasik/vk-video-revanced-patches/issues/11)**: `docs(recon): extract in-stream video ad loader and InstreamAd Smali into docs/ad-layer-video-player.md`
-- [ ] **[Issue #13](https://github.com/byDimasik/vk-video-revanced-patches/issues/13)**: `docs(recon): extract un-elided feed and catalog ad parser Smali into docs/ad-layer-feed-and-banners.md`
-- [ ] **[Issue #16](https://github.com/byDimasik/vk-video-revanced-patches/issues/16)**: `test(patches): add ReVanced v22.0.1 Smali unit test helper and verified DSL reference`
+- [ ] **[Issue #11](https://github.com/byDimasik/vk-video-revanced-patches/issues/11)** ([PR #19](https://github.com/byDimasik/vk-video-revanced-patches/pull/19)): `docs(recon): extract in-stream video ad loader and InstreamAd Smali into docs/ad-layer-video-player.md` (In review — `@jules` addressing final CodeRabbit feedback)
+- [x] **[Issue #13](https://github.com/byDimasik/vk-video-revanced-patches/issues/13)** ([PR #15](https://github.com/byDimasik/vk-video-revanced-patches/pull/15)): `docs(recon): extract un-elided feed and catalog ad parser Smali into docs/ad-layer-feed-and-banners.md`
+- [x] **[Issue #16](https://github.com/byDimasik/vk-video-revanced-patches/issues/16)** ([PR #20](https://github.com/byDimasik/vk-video-revanced-patches/pull/20)): `test(patches): add ReVanced v22.0.1 Smali unit test helper and verified DSL reference`
 
-### Wave 2 (Queued — Apply `jules` Label After Wave 1 Merges)
-- [ ] **[Issue #17](https://github.com/byDimasik/vk-video-revanced-patches/issues/17)**: `feat(patches): implement disable-video-ads bytecode patch and unit tests` (Blocked by #11, #16)
-- [ ] **[Issue #18](https://github.com/byDimasik/vk-video-revanced-patches/issues/18)**: `feat(patches): implement hide-feed-ads bytecode patch for MyTargetNativeAdEntry and PromoPost` (Blocked by #13, #16)
+### Wave 2 (Core Bytecode Patches — Disjoint Packages)
+- [ ] **[Issue #17](https://github.com/byDimasik/vk-video-revanced-patches/issues/17)**: `feat(patches): implement disable-video-ads bytecode patch and unit tests` (Blocked by #11 / PR #19)
+- [ ] **[Issue #18](https://github.com/byDimasik/vk-video-revanced-patches/issues/18)**: `feat(patches): implement hide-feed-ads bytecode patch for MyTargetNativeAdEntry and PromoPost` (Dispatched — labeled `jules`; prerequisites #13 and #16 merged)
 
 ## Next Planned Phase (Phase 3 — Post-Wave 2)
 - Catalog banner (`CatalogAdBannerDto`) and top-shelf layout (`catalog_video_topshelf`, `catalog_video_music_topshelf`) suppression patches.
