@@ -23,7 +23,7 @@ Canonical state file for stateless session resumption across Gemini Spark and Go
 
 ## Active Backlog — [Epic #23](https://github.com/byDimasik/vk-video-revanced-patches/issues/23): Phase 3
 
-### Wave 1 (Parallel, 100% Disjoint Files)
+### Wave 1 (Dispatched to Google Jules — Labeled `jules`, 100% Disjoint Files)
 - [ ] **[Issue #24](https://github.com/byDimasik/vk-video-revanced-patches/issues/24)**: `build(patches): add .rvp bundle packaging Gradle task and metadata`
 - [ ] **[Issue #25](https://github.com/byDimasik/vk-video-revanced-patches/issues/25)**: `test(e2e): add real APK fingerprint resolution smoke test and PR test template`
 
