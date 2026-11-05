@@ -42,9 +42,14 @@ Canonical state file for stateless session resumption across Gemini Spark and Go
 ## Epic #23 Status: ALL SUB-ISSUES COMPLETE (2026-11-05)
 Phase 3 fully delivered. Ready for Phase 4 scoping.
 
-### Known follow-ups (backlog candidates, not blockers)
-- **APK snapshot version drift**: repo pins `1.165` (`version.mk`), `make fetch-apk` now serves `1.168`. e2e filename is hardcoded to 1.165 — make it version-agnostic and re-pin `version.mk` deliberately.
-- **Fingerprint drift maintenance**: obfuscated class names (e.g. `Lmo/d5;` → `Lno/x7;`) shift between APK builds; consider looser pinning via unique log strings where safe.
+### APK 1.168 re-pin (DONE 2026-11-05, [PR #36](https://github.com/byDimasik/vk-video-revanced-patches/pull/36), merged `6571390`)
+- `version.mk` re-pinned to the actual upstream APK: **1.168** (`54200`, sha `11cb77d7…`) — `version.mk` remains the single source of truth; e2e snapshot guards follow it (1.165 → 1.168 in both e2e tests).
+- `myTargetNativeAdEntryFingerprint` drift fixed: 1.168 parser signature is `a(JSONObject, bp/e, Map)`; strings remain the anchor, stale `parameters()` dropped.
+- All 7 tests green against the real 1.168 APK, CI + Release re-verified.
+
+### Remaining follow-ups (backlog candidates, not blockers)
+- **Fingerprint drift maintenance**: obfuscated names (`Lmo/d5;` → `Lno/x7;` etc.) shift between APK builds; prefer string/structure anchors over class-name pins where safe.
+- **e2e strictness in CI**: `APKTOOL_FRAMEWORK_DIR` must be present for resource decoding in tests; consider provisioning the framework APK in CI or vendoring it.
 
 ### Post-epic hotfix (2026-11-05)
 - [x] **[PR #35](https://github.com/byDimasik/vk-video-revanced-patches/pull/35)** (merged `6d681dc`): `fix(ci): disambiguate tag push refspec in release workflow` — the first real post-#34 Release run failed because the `main` **tag** now collides with the `main` **branch** (`git push origin main` → "matches more than one"); the workflow now pushes `refs/tags/main`. **Release workflow re-verified green**, rolling release asset refreshed.
