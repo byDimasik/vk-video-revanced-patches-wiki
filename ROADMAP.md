@@ -33,9 +33,18 @@ Canonical state file for stateless session resumption across Gemini Spark and Go
 - [x] **[Issue #26](https://github.com/byDimasik/vk-video-revanced-patches/issues/26)** ([PR #31](https://github.com/byDimasik/vk-video-revanced-patches/pull/31), merged `358b1d3`): `ci(release): add rolling main GitHub release workflow for .rvp bundle`
   - Final shape: create-or-update rolling release `main`, asset upload with 3× retry + `--clobber`, `gh release edit --draft=false` publish, stale-run SHA guard, workflow-level concurrency (queued, not cancelled). **Live-verified**: rolling release publishes `vk-video-patches.rvp` containing `classes.dex` + `patch-bundle.json`.
 
-### Wave 2 remainder (IN PROGRESS — dispatched to OpenClaw agents 2026-11-05, CodeRabbit loop)
-- [ ] **[Issue #27](https://github.com/byDimasik/vk-video-revanced-patches/issues/27)**: `feat(patches): implement hide-catalog-banners bytecode patch for CatalogAdBannerDto` — dispatched (agent run 75173f4a)
-- [ ] **[Issue #28](https://github.com/byDimasik/vk-video-revanced-patches/issues/28)**: `feat(patches): implement suppress-topshelf resource patch for catalog promo shelves` — dispatched (agent run b4d0f0d1)
+### Wave 2 remainder (COMPLETED 2026-11-05)
+- [x] **[Issue #27](https://github.com/byDimasik/vk-video-revanced-patches/issues/27)** ([PR #34](https://github.com/byDimasik/vk-video-revanced-patches/pull/34), merged `d061817`): `feat(patches): implement hide-catalog-banners bytecode patch for CatalogAdBannerDto`
+  - Implementation note: the issue assumed a JSON deserializer; the DTO is a plain Parcelable, so the patch short-circuits the real choke points (`CatalogAdBannerDto.b()` slotId getter, `CatalogSectionDto.d()` adBanner accessor) with a full null-safety trace. Also dropped a stale class-name constraint in `instreamAdLoaderFingerprint` (classes obfuscated-rename-drifted in the 1.168 snapshot).
+  - 8 e2e tests, 0 skipped, 0 failures. CodeRabbit: 0 threads, clean pass.
+- [x] **[Issue #28](https://github.com/byDimasik/vk-video-revanced-patches/issues/28)** ([PR #33](https://github.com/byDimasik/vk-video-revanced-patches/pull/33), merged `b37e09f`): `feat(patches): implement suppress-topshelf resource patch for catalog promo shelves` — CodeRabbit clean first pass, 0 threads.
+
+## Epic #23 Status: ALL SUB-ISSUES COMPLETE (2026-11-05)
+Phase 3 fully delivered. Ready for Phase 4 scoping.
+
+### Known follow-ups (backlog candidates, not blockers)
+- **APK snapshot version drift**: repo pins `1.165` (`version.mk`), `make fetch-apk` now serves `1.168`. e2e filename is hardcoded to 1.165 — make it version-agnostic and re-pin `version.mk` deliberately.
+- **Fingerprint drift maintenance**: obfuscated class names (e.g. `Lmo/d5;` → `Lno/x7;`) shift between APK builds; consider looser pinning via unique log strings where safe.
 
 ## Infrastructure Notes (2026-11-05)
 - **Build host**: JDK 17 (openjdk-17-jdk-headless) installed; Android build-tools `d8` at `~/android/build-tools/34.0.0` (executable). Local bundle builds verified end-to-end.
