@@ -46,6 +46,9 @@ Phase 3 fully delivered. Ready for Phase 4 scoping.
 - **APK snapshot version drift**: repo pins `1.165` (`version.mk`), `make fetch-apk` now serves `1.168`. e2e filename is hardcoded to 1.165 — make it version-agnostic and re-pin `version.mk` deliberately.
 - **Fingerprint drift maintenance**: obfuscated class names (e.g. `Lmo/d5;` → `Lno/x7;`) shift between APK builds; consider looser pinning via unique log strings where safe.
 
+### Post-epic hotfix (2026-11-05)
+- [x] **[PR #35](https://github.com/byDimasik/vk-video-revanced-patches/pull/35)** (merged `6d681dc`): `fix(ci): disambiguate tag push refspec in release workflow` — the first real post-#34 Release run failed because the `main` **tag** now collides with the `main` **branch** (`git push origin main` → "matches more than one"); the workflow now pushes `refs/tags/main`. **Release workflow re-verified green**, rolling release asset refreshed.
+
 ## Infrastructure Notes (2026-11-05)
 - **Build host**: JDK 17 (openjdk-17-jdk-headless) installed; Android build-tools `d8` at `~/android/build-tools/34.0.0` (executable). Local bundle builds verified end-to-end.
 - **Gradle auth**: GitHub Packages (revanced-patcher) requires `export GITHUB_ACTOR=byDimasik GITHUB_TOKEN=$(gh auth token)` before `./gradlew` locally.
