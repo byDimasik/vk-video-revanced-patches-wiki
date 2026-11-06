@@ -59,3 +59,14 @@ Phase 3 fully delivered. Ready for Phase 4 scoping.
 - **Gradle auth**: GitHub Packages (revanced-patcher) requires `export GITHUB_ACTOR=byDimasik GITHUB_TOKEN=$(gh auth token)` before `./gradlew` locally.
 - **CI**: `build-and-check` + `Release` workflows on main; rolling release `main` serves the `.rvp` asset.
 - **Review pipeline**: CodeRabbit (assertive profile, `.coderabbit.yaml`). Merge rule: all review threads resolved → squash merge (merge commits disabled on repo). Escalation cap: 5 fix rounds.
+
+## FUTURE / IDEAS — not started, no tickets yet
+
+### SponsorBlock-style chapter-name segment skipper for VK Video
+- **Status**: Future — not started, no tickets yet.
+- **Idea**: a patch/extension that auto-skips segments in VK Video players based on **chapter names** parsed from each video's description `Таймкоды:` block (a SponsorBlock variant driven by per-channel rules instead of crowdsourced submissions).
+- **Design sketch**:
+  - Per-channel rule sets keyed by channel/owner id (first target channel: Артемий Лебедев, `https://vkvideo.ru/@temalebedev`, owner id `-211437014`).
+  - Matcher types: exact chapter name, name prefix, position+duration pattern (e.g. pre-roll sponsor at 00:00 with a per-episode brand name).
+  - Categories: `sponsor`, `promo`/`self-promo`, `intro` (candidate).
+- **Data**: full pattern analysis and per-episode evidence in `research/lebedev-chapter-patterns.md` (wiki repo).
